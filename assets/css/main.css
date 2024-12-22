@@ -153,53 +153,75 @@ h6 {
   background-color: var(--background-color);
 }
 
-.header .topbar {
-  background-color: var(--background-color);
-  height: 40px;
-  padding: 0;
-  font-size: 14px;
-  transition: all 0.5s;
+.topbar {
+  background-color: #242424; /* Background color for the bar */
+  height: 40px; /* Consistent height for the bar */
+  font-size: 14px; /* Font size for the content */
+  position: fixed; /* Fixes it to the viewport */
+  bottom: 0; /* Sticks it to the bottom of the screen */
+  left: 0; /* Aligns it to the left edge */
+  width: 100%; /* Ensures it spans the entire width of the screen */
+  z-index: 999; /* Keeps it above all other elements */
+  display: flex; /* Use flexbox for content alignment */
+  justify-content: space-between; /* Space between contact-info and social-links */
+  align-items: center; /* Centers the content vertically */
+  padding: 0 20px; /* Adds horizontal padding */
+  box-sizing: border-box; /* Ensures padding is included in the width */
 }
 
-.header .topbar .contact-info i {
+.topbar .contact-info {
+  display: flex; /* Align contact-info items horizontally */
+  align-items: center; /* Centers items vertically */
+}
+
+.topbar .contact-info i {
   font-style: normal;
   color: var(--accent-color);
 }
 
-.header .topbar .contact-info i a,
-.header .topbar .contact-info i span {
+.topbar .contact-info i a,
+.topbar .contact-info i span {
   padding-left: 5px;
-  color: var(--default-color);
+  color: white;
 }
 
 @media (max-width: 575px) {
-
-  .header .topbar .contact-info i a,
-  .header .topbar .contact-info i span {
+  .topbar .contact-info i a,
+  .topbar .contact-info i span {
     font-size: 13px;
   }
 }
 
-.header .topbar .contact-info i a {
+.topbar .contact-info i a {
   line-height: 0;
   transition: 0.3s;
 }
 
-.header .topbar .contact-info i a:hover {
+.topbar .contact-info i a:hover {
   color: var(--contrast-color);
   text-decoration: underline;
 }
 
-.header .topbar .social-links a {
+.topbar .social-links {
+  display: flex; /* Align social links horizontally */
+  margin-left: auto; /* Pushes social links to the far right */
+  gap: 20px; /* Ensure consistent spacing between icons */
+  padding: 0; /* Remove any padding */
+}
+
+.topbar .social-links a {
   color: color-mix(in srgb, var(--default-color), transparent 40%);
   line-height: 0;
   transition: 0.3s;
-  margin-left: 20px;
 }
 
-.header .topbar .social-links a:hover {
+.topbar .social-links a:hover {
   color: var(--accent-color);
 }
+
+
+
+
 
 .header .branding {
   background-color: color-mix(in srgb, var(--default-color), transparent 95%);
