@@ -142,16 +142,7 @@ h6 {
 /*--------------------------------------------------------------
 # Global Header
 --------------------------------------------------------------*/
-.header {
-  --background-color: #242424;
-  --default-color: #ffffff;
-  --heading-color: #ffffff;
-  --contrast-color: #ffffff;
-  color: var(--default-color);
-  transition: all 0.5s;
-  z-index: 997;
-  background-color: var(--background-color);
-}
+
 
 .topbar {
   background-color: #242424; /* Background color for the bar */
@@ -220,7 +211,16 @@ h6 {
 }
 
 
-
+.header {
+  --background-color: #242424;
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
+  --contrast-color: #ffffff;
+  color: var(--default-color);
+  transition: all 0.5s;
+  z-index: 997;
+  background-color: var(--background-color);
+}
 
 
 .header .branding {
