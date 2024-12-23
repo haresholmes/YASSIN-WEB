@@ -1,41 +1,35 @@
 <?php
-// Replace with your actual receiving email address
-$receiving_email_address = 'info@amalak.ae';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Sanitize input
-    $name = htmlspecialchars($_POST['name']);
-    $email = htmlspecialchars($_POST['email']);
-    $subject = htmlspecialchars($_POST['subject']);
-    $message = htmlspecialchars($_POST['message']);
-
-    // Validate input
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "Invalid email format.";
-        exit;
-    }
-
-    if (empty($name) || empty($subject) || empty($message)) {
-        echo "Please fill in all required fields.";
-        exit;
-    }
-
-    // Email content
-    $email_subject = "New Message: $subject";
-    $email_body = "Name: $name\n";
-    $email_body .= "Email: $email\n";
-    $email_body .= "Message:\n$message\n";
-
-    $headers = "From: $email\r\n";
-    $headers .= "Reply-To: $email\r\n";
-
-    // Send email
-    if (mail($receiving_email_address, $email_subject, $email_body, $headers)) {
-        echo "Your message has been sent. Thank you!";
-    } else {
-        echo "There was an error sending your message. Please try again later.";
-    }
+// Load the PHP Email Form library
+if (file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php')) {
+    include($php_email_form);
 } else {
-    echo "Invalid request method.";
+    die('Unable to load the "PHP Email Form" Library!');
 }
+
+$contact = new PHP_Email_Form;
+$contact->ajax = true;
+
+// Set the recipient email
+$contact->to = 'info@amalak.ae';
+
+// Zoho SMTP configuration
+$contact->smtp = array(
+    'host' => 'smtp.zoho.com', // Zoho SMTP server
+    'username' => 'info@amalak.ae', // Your Zoho email
+    'password' => 'your-zoho-password', // Your Zoho email password
+    'port' => '587', // Zoho SMTP port for TLS
+);
+
+// Form data
+$contact->from_name = $_POST['name'];
+$contact->from_email = $_POST['email'];
+$contact->subject = $_POST['subject'];
+
+// Add form messages
+$contact->add_message($_POST['name'], 'From');
+$contact->add_message($_POST['email'], 'Email');
+$contact->add_message($_POST['message'], 'Message', 10);
+
+// Send the email
+echo $contact->send();
 ?>
