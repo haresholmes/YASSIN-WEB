@@ -238,37 +238,53 @@ h6 {
 # Navigation Menu
 --------------------------------------------------------------*/
 /* Desktop Navigation */
+/* Desktop Navigation */
 @media (min-width: 1200px) {
-  .navmenu {
-    padding: 0;
-  }
+    .navmenu {
+        padding: 0;
+        margin-left: auto; /* Pushes menu to the far right */
+    }
 
-  .navmenu ul {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    list-style: none;
-    align-items: center;
-  }
+    .navmenu ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        list-style: none;
+        align-items: center;
+    }
 
-  .navmenu li {
-    position: relative;
-  }
+    .navmenu li {
+        position: relative;
+        margin-left: 20px; /* Add spacing between menu items */
+    }
 
-  .navmenu a,
-  .navmenu a:focus {
-    color: var(--nav-color);
-    padding: 20px 15px;
-    margin-left: 2px;
-    font-size: 16px;
-    font-family: var(--nav-font);
-    font-weight: 400;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    white-space: nowrap;
-    transition: 0.3s;
-  }
+    .navmenu a,
+    .navmenu a:focus {
+        color: var(--nav-color); /* Use your custom navigation color */
+        padding: 20px 15px;
+        font-size: 16px;
+        font-family: var(--nav-font);
+        font-weight: 400;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.3s;
+    }
+
+    .navmenu a:hover {
+        color: var(--hover-color); /* Add hover effect */
+    }
+
+    .navmenu a i,
+    .navmenu a:focus i {
+        font-size: 12px;
+        line-height: 0;
+        margin-left: 5px;
+        transition: 0.3s;
+    }
+}
+
 
   .navmenu a i,
   .navmenu a:focus i {
@@ -341,7 +357,6 @@ h6 {
     left: -100%;
     visibility: visible;
   }
-}
 
 /* Enhanced Mobile Navigation */
 @media (max-width: 1199px) {
@@ -1475,32 +1490,37 @@ section,
 /*--------------------------------------------------------------
 # Service Details Section
 --------------------------------------------------------------*/
+/* Parent container for services */
+.service-details {
+  text-align: center; /* Centers all child content */
+}
+
+/* Ensure the list is centered */
 .service-details .services-list {
-  background-color: var(--surface-color);
-  padding: 10px 30px;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column; /* Arrange items vertically */
+  align-items: center; /* Center-align the items */
+  justify-content: center; /* Vertically align within the parent */
+  list-style: none; /* Remove bullet points */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margin */
 }
 
+/* List items */
 .service-details .services-list a {
-  display: block;
-  line-height: 1;
-  padding: 8px 0 8px 15px;
-  border-left: 3px solid color-mix(in srgb, var(--default-color), transparent 70%);
-  margin: 20px 0;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-  transition: 0.3s;
-}
-
-.service-details .services-list a.active {
-  color: var(--heading-color);
-  font-weight: 700;
-  border-color: var(--accent-color);
+  display: block; /* Ensure block behavior for better control */
+  text-align: center; /* Center the text within each item */
+  padding: 10px 0; /* Add spacing */
+  font-size: 16px; /* Adjust as needed */
+  color: var(--default-color); /* Use your desired color */
+  text-decoration: none; /* Remove underline */
+  transition: color 0.3s;
 }
 
 .service-details .services-list a:hover {
-  border-color: var(--accent-color);
+  color: var(--accent-color); /* Change color on hover */
 }
+
 
 .service-details .services-img {
   margin-bottom: 20px;
@@ -1536,6 +1556,47 @@ section,
   font-size: 20px;
   margin-right: 8px;
   color: var(--accent-color);
+}
+
+/* Footer Section */
+.footer {
+  background: #000; /* Footer background color */
+  color: #fff; /* Text color */
+  padding: 20px 0; /* Spacing above and below */
+  text-align: center; /* Center align text */
+}
+
+.footer .footer-links h4 {
+  font-size: 18px; /* Heading size */
+  font-weight: bold; /* Make the text bold */
+  margin-bottom: 15px; /* Spacing below the heading */
+  color: #fff; /* Heading color */
+}
+
+.footer .footer-links ul {
+  list-style: none; /* Remove bullet points */
+  padding: 0; /* Remove padding */
+  margin: 0 auto; /* Center the list */
+  display: inline-block; /* Center the list block */
+}
+
+.footer .footer-links ul li {
+  text-align: center; /* Center-align text */
+  margin-bottom: 10px; /* Add spacing between items */
+  display: flex; /* Use flexbox to handle alignment */
+  justify-content: center; /* Center-align content */
+  flex-wrap: wrap; /* Allow text to wrap on smaller screens */
+}
+
+.footer .footer-links ul li a {
+  text-decoration: none; /* Remove underline from links */
+  color: #ccc; /* Link color */
+  font-size: 16px; /* Adjust font size */
+  transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.footer .footer-links ul li a:hover {
+  color: #ff6347; /* Hover color */
 }
 
 /*--------------------------------------------------------------
