@@ -78,6 +78,11 @@ body {
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+html {
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 a {
@@ -119,6 +124,7 @@ p {
 /* Enhanced Section Spacing - Swiss Grid */
 .section {
   padding: 120px 0;
+  overflow: hidden; /* Prevent horizontal scroll in sections */
 }
 
 @media (max-width: 768px) {
@@ -135,6 +141,7 @@ p {
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-light);
   transition: all 0.3s ease;
+  z-index: 1000;
 }
 
 .header .branding {
@@ -144,28 +151,28 @@ p {
 .header .logo img {
   max-height: 50px;
   width: auto;
-    }
+}
 
-    .navmenu ul {
-        display: flex;
-        list-style: none;
-    margin: 0;
-    padding: 0;
+.navmenu ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
   gap: 2rem;
 }
 
 .navmenu a {
-    color: var(--nav-color);
-    font-weight: 500;
+  color: var(--nav-color);
+  font-weight: 500;
   font-size: 0.95rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   padding: 0.5rem 0;
   position: relative;
   transition: all 0.2s ease;
-  }
+}
 
-  .navmenu a:hover,
+.navmenu a:hover,
 .navmenu a.active {
   color: var(--nav-hover-color);
 }
@@ -184,6 +191,24 @@ p {
 .navmenu a:hover::after,
 .navmenu a.active::after {
   width: 100%;
+}
+
+/* Mobile Navigation Toggle */
+.mobile-nav-toggle {
+  display: none;
+  color: var(--nav-color);
+  font-size: 28px;
+  line-height: 0;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.mobile-nav-toggle:hover {
+  transform: scale(1.1);
+  color: var(--nav-hover-color);
 }
 
 /*--------------------------------------------------------------
@@ -819,6 +844,190 @@ p {
     padding: 0.5rem 1rem;
     font-size: 0.8rem;
   }
+  
+  /* Mobile container fixes */
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+    max-width: 100%;
+  }
+  
+  /* Mobile text adjustments */
+  .hero h2 {
+    font-size: 2rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+  }
+  
+  .section-title h2 {
+    font-size: 1.75rem;
+  }
+  
+  .section-title p {
+    font-size: 1rem;
+  }
+  
+  /* Mobile card adjustments */
+  .cards .card span {
+    font-size: 2.5rem;
+  }
+  
+  .cards .card h4 {
+    font-size: 1.1rem;
+  }
+  
+  .cards .card p {
+    font-size: 0.9rem;
+  }
+  
+  /* Mobile service adjustments */
+  .services .service-item .icon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .services .service-item .icon i {
+    font-size: 1.5rem;
+  }
+  
+  .services .service-item h3 {
+    font-size: 1.1rem;
+  }
+  
+  .services .service-item p {
+    font-size: 0.9rem;
+  }
+  
+  /* Mobile portfolio adjustments */
+  .portfolio .portfolio-item img {
+    height: 200px;
+  }
+  
+  .portfolio .portfolio-info {
+    padding: 1rem;
+  }
+  
+  .portfolio .portfolio-info h4 {
+    font-size: 1rem;
+  }
+  
+  .portfolio .portfolio-info p {
+    font-size: 0.8rem;
+  }
+  
+  /* Mobile contact adjustments */
+  .contact .info-item {
+    padding: 2rem 1.5rem;
+  }
+  
+  .contact .info-item i {
+    font-size: 2rem;
+  }
+  
+  .contact .info-item h3 {
+    font-size: 1rem;
+  }
+  
+  .contact .info-item p {
+    font-size: 0.9rem;
+  }
+  
+  /* Mobile form adjustments */
+  .contact .php-email-form input[type=text],
+  .contact .php-email-form input[type=email],
+  .contact .php-email-form textarea {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .contact .php-email-form button[type=submit] {
+    padding: 0.75rem 2rem;
+    font-size: 0.85rem;
+  }
+  
+  /* Mobile button adjustments */
+  .btn-get-started,
+  .cta-btn {
+    padding: 0.75rem 2rem;
+    font-size: 0.85rem;
+  }
+  
+  /* Mobile footer adjustments */
+  .footer {
+    padding: 40px 0 20px;
+  }
+  
+  .footer .footer-top {
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .footer h4 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .footer .footer-links ul li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer .footer-links ul a {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  .hero h2 {
+    font-size: 1.75rem;
+  }
+  
+  .hero p {
+    font-size: 0.9rem;
+  }
+  
+  .section-title h2 {
+    font-size: 1.5rem;
+  }
+  
+  .section-title span {
+    font-size: 0.8rem;
+  }
+  
+  .section-title p {
+    font-size: 0.9rem;
+  }
+  
+  .cards .card,
+  .services .service-item {
+    padding: 1.5rem 1rem;
+  }
+  
+  .portfolio .portfolio-filters {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .portfolio .portfolio-filters li {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .contact .info-item {
+    padding: 1.5rem 1rem;
+  }
+  
+  .btn-get-started,
+  .cta-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.8rem;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -971,83 +1180,89 @@ p {
 --------------------------------------------------------------*/
 @media (max-width: 1199px) {
   .mobile-nav-toggle {
-    color: var(--nav-color);
-    font-size: 28px;
-    line-height: 0;
-    margin-right: 10px;
-    cursor: pointer;
-    transition: color 0.3s ease, transform 0.3s ease;
-  }
-
-  .mobile-nav-toggle:hover {
-    transform: scale(1.1);
+    display: block;
   }
 
   .navmenu {
-    padding: 0;
-    z-index: 9997;
-  }
-
-  .navmenu ul {
-    display: none;
-    list-style: none;
     position: fixed;
     top: 0;
     right: -100%;
-    width: 80%;
-    height: 100%;
-  background-color: var(--surface-color);
-    overflow-y: auto;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
     transition: right 0.4s ease-in-out;
-    box-shadow: 0 0 30px var(--shadow-medium);
-    flex-direction: column;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .mobile-nav-active .navmenu ul {
-    right: 0;
-    display: flex;
+  .navmenu ul {
+    flex-direction: column;
+    gap: 0;
+    text-align: center;
+    width: 100%;
   }
 
   .navmenu ul li {
     margin: 0;
-    border-bottom: 1px solid var(--border-light);
+    width: 100%;
   }
 
   .navmenu a,
   .navmenu a:focus {
-    color: var(--nav-color);
-    padding: 15px 20px;
+    color: var(--contrast-color);
+    padding: 1.5rem 2rem;
     font-family: var(--nav-font);
-    font-size: 18px;
+    font-size: 1.25rem;
     font-weight: 500;
     display: block;
-    text-align: left;
+    text-align: center;
     transition: color 0.3s ease, background-color 0.3s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .navmenu a:hover,
   .navmenu .active {
-    color: var(--nav-hover-color);
-    background-color: var(--neutral-100);
+    color: var(--accent-color);
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .navmenu a::after {
+    display: none;
+  }
+
+  /* Mobile Navigation Active State */
+  .mobile-nav-active .navmenu {
+    right: 0;
   }
 
   .mobile-nav-active .mobile-nav-toggle {
-    color: var(--nav-color);
     position: fixed;
-    font-size: 32px;
-    top: 15px;
-    right: 15px;
-    z-index: 9999;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    color: var(--contrast-color);
   }
 
-  .mobile-nav-active .navmenu {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.8);
+  .mobile-nav-active .mobile-nav-toggle::before {
+    content: "\F659"; /* Bootstrap Icons X icon */
   }
 
-  .mobile-nav-active .navmenu ul {
-    display: block;
+  /* Prevent body scroll when mobile nav is open */
+  .mobile-nav-active body {
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 768px) {
+  .navmenu a {
+    font-size: 1.1rem;
+    padding: 1.25rem 1.5rem;
+  }
+  
+  .mobile-nav-toggle {
+    font-size: 24px;
   }
 }
 

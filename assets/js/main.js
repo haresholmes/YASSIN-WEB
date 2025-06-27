@@ -23,6 +23,13 @@
     document.querySelector('body').classList.toggle('mobile-nav-active');
     mobileNavToggleBtn.classList.toggle('bi-list');
     mobileNavToggleBtn.classList.toggle('bi-x');
+    
+    // Prevent body scroll when mobile nav is open
+    if (document.querySelector('body').classList.contains('mobile-nav-active')) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
   }
   mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
 
